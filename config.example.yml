@@ -1,0 +1,14 @@
+mqtt: 'mqtt://127.0.0.1'
+boards:
+  - type: 'tcp'
+    name: 'local'
+    ip: '127.0.0.1'
+    port: 502
+    groups: 1
+    interval: 100
+#  - type: 'rtu'
+#    name: 'remote'
+#    socket: '/dev/extcomm/0/0'
+#    id: 15
+#    groups: 1
+#    interval: 100
