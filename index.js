@@ -4,7 +4,7 @@ let yaml          = require('js-yaml');
 let fs            = require('fs');
 
 let Mqtt          = require('mqtt');
-let BoardManager  = require('neuron');
+let BoardManager  = require('unipi-neuron');
 
 let config        = yaml.safeLoad(fs.readFileSync('config.yml', 'utf8'));
 
