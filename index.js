@@ -35,7 +35,7 @@ mqtt.on('message', function (topic, message) {
     }
     else if (topic.substr(-6) === 'switch') {
         let id = topic.split('/')[1];
-        let value = !boardManager.get(id);
+        let value = !boardManager.getState(id);
 
         try {
             boardManager.set(id, value);
@@ -48,5 +48,6 @@ mqtt.on('message', function (topic, message) {
 });
 
 setTimeout(function() {
-    console.log(boardManager.getAll());
+    console.log(boardManager.getAllStates());
+    console.log(boardManager.getAllCounts());
 }, 1000);
