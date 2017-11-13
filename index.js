@@ -45,6 +45,20 @@ mqtt.on('message', function (topic, message) {
             console.log('Failed to set ID: ' + id + ' to ' + value);
         }
     }
+    else if (topic.substr(-5) === 'pulse') {
+        let id = topic.split('/')[1];
+
+        try {
+            boardManager.set(id, true);
+            setTimeout(function () {
+                boardManager.set(id, false);
+            }, 1000);
+        }
+        catch (err) {
+            console.log(err.message);
+            console.log('Failed to pulse ID: ' + id);
+        }
+    }
 });
 
 setTimeout(function() {
