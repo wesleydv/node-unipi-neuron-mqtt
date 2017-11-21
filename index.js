@@ -49,10 +49,14 @@ mqtt.on('message', function (topic, message) {
         let id = topic.split('/')[1];
 
         try {
+            let time = parseInt(message);
+            if (!Number.isInteger(time)) {
+                time = 1000;
+            }
             boardManager.set(id, true);
             setTimeout(function () {
                 boardManager.set(id, false);
-            }, 1000);
+            }, time);
         }
         catch (err) {
             console.log(err.message);
